@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>法律条款 - ink 官方网站</title>
+<meta name="description" content="ink 隐私政策、使用条款与 Cookie 政策">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Crect x='12' y='11' width='8' height='15' fill='%23fff'/%3E%3Ccircle cx='16' cy='7' r='3.5' fill='%232997ff'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;
+  --surface:#0d0d10;
+  --surface-2:#16161a;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.2);
+  --text:#f5f5f7;
+  --dim:#86868b;
+  --dim-2:#6e6e73;
+  --blue:#2997ff;
+  --radius:22px;
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+  padding-top:56px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.container{width:min(760px,100% - 44px);margin-inline:auto}
+
+.logo{
+  display:inline-block;
+  font-size:var(--logo-size,22px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#fff;
+  white-space:nowrap;
+  vertical-align:middle;
+  user-select:none;
+}
+.logo-i{
+  position:relative;
+  display:inline-block;
+  width:.19em;
+  height:.86em;
+  vertical-align:baseline;
+  margin-right:.035em;
+}
+.logo-i-stem{
+  position:absolute;left:0;right:0;bottom:0;
+  height:.5em;
+  border-radius:0;
+  background:#fff;
+}
+.logo-i-dot{
+  position:absolute;left:0;right:0;bottom:.62em;
+  height:.2em;
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 14px rgba(41,151,255,.85),0 0 4px rgba(41,151,255,.9);
+}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(0,0,0,.72);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  width:min(1120px,100% - 44px);
+  margin-inline:auto;
+  height:56px;
+  display:flex;
+  align-items:center;
+  gap:36px;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  margin-right:auto;
+}
+.nav-links a{
+  font-size:13px;
+  color:rgba(255,255,255,.76);
+  transition:color .25s var(--ease);
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.icon-btn{
+  width:34px;height:34px;display:grid;place-items:center;
+  border-radius:50%;color:rgba(255,255,255,.72);
+  transition:background .25s,color .25s;
+}
+.icon-btn:hover{background:rgba(255,255,255,.09);color:#fff}
+.icon-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.burger{display:none}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:980px;
+  font-size:15px;font-weight:500;
+  padding:12px 26px;
+  transition:transform .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease),opacity .3s;
+  white-space:nowrap;
+}
+.btn-sm{padding:7px 16px;font-size:13px}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 0 0 0 rgba(41,151,255,.5);
+}
+.btn-primary:hover{background:#4aa8ff;transform:translateY(-1px);box-shadow:0 8px 30px -6px rgba(41,151,255,.6)}
+
+.page-hero{
+  position:relative;
+  padding:80px 0 0;
+  overflow:hidden;
+}
+.page-glow{
+  position:absolute;
+  top:-360px;left:50%;
+  width:1000px;height:700px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(41,151,255,.16) 0%,rgba(41,151,255,.04) 40%,transparent 70%);
+  pointer-events:none;
+  filter:blur(20px);
+}
+.page-hero .container{position:relative;z-index:1}
+
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13.5px;
+  color:var(--dim);
+  margin-bottom:32px;
+  transition:color .25s var(--ease),gap .3s var(--ease);
+}
+.back-link:hover{color:var(--blue);gap:12px}
+.back-link svg{
+  width:14px;height:14px;
+  stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+.page-title{
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.14;
+  letter-spacing:-.035em;
+  font-weight:700;
+  background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.68) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:20px;
+}
+
+.page-lead{
+  font-size:16px;
+  color:var(--dim);
+  max-width:600px;
+  line-height:1.75;
+  margin-bottom:22px;
+}
+
+.toc{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding-bottom:40px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:60px;
+}
+.toc a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:rgba(255,255,255,.72);
+  border:1px solid var(--line-strong);
+  border-radius:980px;
+  padding:6px 14px;
+  transition:color .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease);
+}
+.toc a:hover{
+  color:var(--blue);
+  border-color:rgba(41,151,255,.5);
+  background:rgba(41,151,255,.08);
+}
+
+.section-block{
+  margin-bottom:90px;
+  scroll-margin-top:80px;
+}
+.section-block:last-child{margin-bottom:100px}
+
+.section-block .article-cat{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:#9fd0ff;
+  background:rgba(41,151,255,.14);
+  border:1px solid rgba(41,151,255,.36);
+  padding:5px 13px;border-radius:980px;
+  width:fit-content;
+  margin-bottom:20px;
+}
+
+.section-title{
+  font-size:clamp(28px,3.8vw,44px);
+  line-height:1.16;
+  letter-spacing:-.03em;
+  font-weight:700;
+  background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.7) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:28px;
+}
+
+.section-meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px 22px;
+  padding-bottom:28px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:38px;
+  font-size:13.5px;
+  color:var(--dim);
+}
+.meta-item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+.meta-item svg{
+  width:14px;height:14px;
+  stroke:var(--dim-2);fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+  flex-shrink:0;
+}
+.meta-item .meta-label{
+  color:var(--dim-2);
+  font-size:12.5px;
+}
+.meta-item .meta-value{
+  color:rgba(255,255,255,.86);
+  font-variant-numeric:tabular-nums;
+}
+.meta-sep{
+  width:3px;height:3px;border-radius:50%;
+  background:var(--dim-2);
+  opacity:.55;
+}
+
+.section-body{
+  font-size:17px;
+  line-height:1.85;
+  color:rgba(255,255,255,.82);
+}
+.section-body p{margin-bottom:24px}
+.section-body p:last-child{margin-bottom:0}
+.section-body strong{color:#fff;font-weight:600}
+
+@media (max-width:820px){
+  body{padding-top:52px}
+  .nav-inner{height:52px;gap:14px}
+  .nav-links{
+    position:fixed;top:52px;left:0;right:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:rgba(8,8,10,.97);
+    -webkit-backdrop-filter:blur(22px);
+    backdrop-filter:blur(22px);
+    border-bottom:1px solid var(--line);
+    padding:0 22px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s var(--ease),padding .45s var(--ease);
+  }
+  .nav-links.open{max-height:340px;padding:14px 22px 22px}
+  .nav-links a{font-size:16px;padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
+  .nav-links a::after{display:none}
+  .burger{display:grid}
+  .page-hero{padding:56px 0 0}
+  .section-body{font-size:16px;line-height:1.8}
+  .section-block{margin-bottom:64px}
+}
+@media (max-width:560px){
+  .section-meta{gap:12px 18px}
+  .meta-sep{display:none}
+  .toc{gap:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="ink 首页">
+      <span class="logo-i"><span class="logo-i-stem"></span><span class="logo-i-dot"></span></span><span class="logo-text">nk</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#featured">日常</a>
+      <a href="index.html#reviews">博客</a>
+      <a href="index.html#videos">视频</a>
+      <a href="index.html#news">教程</a>
+      <a href="index.html#about">关于</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="搜索">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <a href="https://space.bilibili.com/1561405908?spm_id_from=333.1007.0.0" data-bili="https://space.bilibili.com/1561405908?spm_id_from=333.1007.0.0" data-yt="https://www.youtube.com/@lovelzr0816" class="btn btn-primary btn-sm">订阅我的长视频频道</a>
+      <button class="icon-btn burger" id="burger" aria-label="菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-glow"></div>
+  <div class="container">
+
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <span>返回首页</span>
+    </a>
+
+    <h1 class="page-title">了解 ink 对你的隐私权<br>及此网站的条款<br>及 ink 如何使用你的 Cookie</h1>
+
+      <div class="section-meta">
+        <span class="meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span class="meta-label">发布时间</span>
+          <span class="meta-value">2026-10-01 23:00:00</span>
+        </span>
+        <span class="meta-sep"></span>
+        <span class="meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="meta-label">发布 IP</span>
+          <span class="meta-value">Puyang,Henan,China</span>
+        </span>
+        <span class="meta-sep"></span>
+        <span class="meta-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span class="meta-label">发布者</span>
+          <span class="meta-value">落時剑</span>
+        </span>
+      </div>
+
+    <nav class="toc">
+      <a href="#privacy">你的隐私权</a>
+      <a href="#terms">此网站的条款</a>
+      <a href="#cookies">ink 如何使用你的 Cookie</a>
+    </nav>
+
+    <section class="section-block" id="privacy">
+      <h2 class="section-title">你的隐私权</h2>
+
+      <div class="section-body">
+        <p>
+          欢迎访问 ink（以下简称「本站」）。我们非常重视您的隐私。本隐私政策说明我们如何收集、使用、存储和保护您的个人信息，以及您对这些信息享有的权利。当您访问本站、订阅邮件或与我们互动时，即表示您已阅读并同意本政策。我们收集的信息主要包括：您主动提供的邮箱地址与昵称、服务器自动记录的 IP 地址与访问日志、以及用于记住偏好和统计访问量的 Cookie 数据。这些信息仅用于提供和维护服务、向您发送订阅内容、回复咨询、分析流量以及遵守法律法规，我们不会出售、出租、交易或与服务提供商共享您的个人信息。
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block" id="terms">
+      <h2 class="section-title">此网站的条款</h2>
+
+      <div class="section-body">
+        <p>
+          使用本站即表示您同意遵守以下条款。本站所有内容（包括文字、图片、视频、音频、代码及排版设计）的著作权归 ink 或相应权利人所有，未经书面许可，不得用于商业目的复制、转载、修改或再分发；非商业个人使用请注明来源。您在使用本站时不得从事任何违法、侵权、干扰服务器运行、爬取大量数据、传播恶意代码或冒充本站的行为。本站部分内容可能包含外部链接，这些链接的准确性和安全性由目标网站负责，本站不对其内容承担任何责任。本站内容基于独立评测和真实体验，但仅供读者参考，不构成任何购买建议或专业意见，因使用本站信息导致的任何损失，本站不承担赔偿责任。我们保留随时修改、暂停或终止部分服务的权利，条款如有更新将在本页面公示，恕不另行通知，若继续使用本站即视为接受更新后的条款。
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block" id="cookies">
+      <h2 class="section-title">ink 如何使用你的 Cookie</h2>
+
+      <div class="section-body">
+        <p>
+          重要通知:本站若未在页面弹出通知则视为此次访问不收集 Cookie。<br>Cookie 是网站存储在您浏览器中的小型文本文件，用于记住您的偏好、维持会话状态和统计访问数据。本站使用以下几类 Cookie：必要的功能性 Cookie 用于保证网站基础功能正常运行，例如页面锚点跳转和表单提交状态；分析类 Cookie 用于统计页面访问量、用户来源和停留时间，帮助我们了解内容表现并优化体验；偏好类 Cookie 用于记住您选择的语言、主题或订阅状态。我们不会使用 Cookie 收集敏感个人信息，也不会将 Cookie 数据用于广告投放或出售给第三方。您可以在浏览器设置中随时清除或禁用 Cookie，大多数浏览器都支持在「设置 — 隐私与安全」中找到相关选项。请注意，禁用必要的 Cookie 可能导致部分功能（如订阅表单、偏好保存）无法正常使用。继续浏览本站即表示您同意我们按照本政策使用 Cookie。
+        </p>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  links.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
