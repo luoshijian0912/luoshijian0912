@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支持我们 - ink</title>
+<meta name="description" content="支持 ink，让独立科技媒体继续做下去">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Crect x='12' y='11' width='8' height='15' fill='%23fff'/%3E%3Ccircle cx='16' cy='7' r='3.5' fill='%232997ff'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;
+  --surface:#0d0d10;
+  --surface-2:#16161a;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.2);
+  --text:#f5f5f7;
+  --dim:#86868b;
+  --dim-2:#6e6e73;
+  --blue:#2997ff;
+  --radius:22px;
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+  padding-top:56px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.container{width:min(1120px,100% - 44px);margin-inline:auto}
+
+.logo{
+  display:inline-block;
+  font-size:var(--logo-size,22px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#fff;
+  white-space:nowrap;
+  vertical-align:middle;
+  user-select:none;
+}
+.logo-i{
+  position:relative;
+  display:inline-block;
+  width:.19em;
+  height:.86em;
+  vertical-align:baseline;
+  margin-right:.035em;
+}
+.logo-i-stem{
+  position:absolute;left:0;right:0;bottom:0;
+  height:.5em;
+  border-radius:0;
+  background:#fff;
+}
+.logo-i-dot{
+  position:absolute;left:0;right:0;bottom:.62em;
+  height:.2em;
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 14px rgba(41,151,255,.85),0 0 4px rgba(41,151,255,.9);
+}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(0,0,0,.72);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  width:min(1120px,100% - 44px);
+  margin-inline:auto;
+  height:56px;
+  display:flex;
+  align-items:center;
+  gap:36px;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  margin-right:auto;
+}
+.nav-links a{
+  font-size:13px;
+  color:rgba(255,255,255,.76);
+  transition:color .25s var(--ease);
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.icon-btn{
+  width:34px;height:34px;display:grid;place-items:center;
+  border-radius:50%;color:rgba(255,255,255,.72);
+  transition:background .25s,color .25s;
+}
+.icon-btn:hover{background:rgba(255,255,255,.09);color:#fff}
+.icon-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.burger{display:none}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:980px;
+  font-size:15px;font-weight:500;
+  padding:12px 26px;
+  transition:transform .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease),opacity .3s;
+  white-space:nowrap;
+}
+.btn-sm{padding:7px 16px;font-size:13px}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 0 0 0 rgba(41,151,255,.5);
+}
+.btn-primary:hover{background:#4aa8ff;transform:translateY(-1px);box-shadow:0 8px 30px -6px rgba(41,151,255,.6)}
+
+.page-hero{
+  position:relative;
+  padding:100px 0 60px;
+  overflow:hidden;
+  text-align:center;
+}
+.page-glow{
+  position:absolute;
+  top:-360px;left:50%;
+  width:1100px;height:760px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(41,151,255,.22) 0%,rgba(41,151,255,.06) 38%,transparent 68%);
+  pointer-events:none;
+  filter:blur(20px);
+}
+.page-hero .container{position:relative;z-index:1}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:26px;
+}
+.pulse{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 0 rgba(41,151,255,.7);
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(41,151,255,.65)}
+  70%{box-shadow:0 0 0 12px rgba(41,151,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(41,151,255,0)}
+}
+
+.page-title{
+  font-size:clamp(40px,6.4vw,74px);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  font-weight:700;
+  background:linear-gradient(180deg,#fff 25%,rgba(255,255,255,.62) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:26px;
+}
+
+.page-sub{
+  max-width:620px;
+  margin:0 auto;
+  font-size:clamp(15px,1.7vw,18px);
+  color:var(--dim);
+  line-height:1.7;
+}
+
+.donate-section{
+  position:relative;
+  padding:0 0 110px;
+}
+.donate-section .container{position:relative;z-index:1}
+
+.qr-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-bottom:40px;
+}
+
+.qr-card{
+  position:relative;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:var(--surface);
+  padding:36px 32px 32px;
+  transition:transform .5s var(--ease),border-color .5s var(--ease),background .5s var(--ease);
+  display:flex;
+  flex-direction:column;
+}
+.qr-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--line-strong);
+  background:var(--surface-2);
+}
+
+.qr-card-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:#9fd0ff;
+  background:rgba(41,151,255,.14);
+  border:1px solid rgba(41,151,255,.36);
+  padding:5px 13px;border-radius:980px;
+  width:fit-content;
+  margin-bottom:22px;
+}
+
+.qr-card-title{
+  font-size:clamp(20px,2.4vw,26px);
+  letter-spacing:-.025em;
+  line-height:1.25;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.qr-card-desc{
+  font-size:14.5px;
+  color:var(--dim);
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.qr-box{
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:280px;
+  margin:0 auto;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:#16161a;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.qr-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.thanks-block{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+  padding:48px 32px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.thanks-block h3{
+  font-size:clamp(20px,2.4vw,26px);
+  letter-spacing:-.02em;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:18px;
+}
+.thanks-block p{
+  font-size:15.5px;
+  color:var(--dim);
+  line-height:1.85;
+  margin-bottom:16px;
+}
+.thanks-block p:last-child{margin-bottom:0}
+.thanks-block strong{color:#fff;font-weight:600}
+
+.platform-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px 24px;
+  margin-top:32px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.platform-links a{
+  font-size:14px;
+  color:rgba(255,255,255,.72);
+  transition:color .25s var(--ease);
+}
+.platform-links a:hover{
+  color:var(--blue);
+}
+
+@media (max-width:820px){
+  body{padding-top:52px}
+  .nav-inner{height:52px;gap:14px}
+  .nav-links{
+    position:fixed;top:52px;left:0;right:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:rgba(8,8,10,.97);
+    -webkit-backdrop-filter:blur(22px);
+    backdrop-filter:blur(22px);
+    border-bottom:1px solid var(--line);
+    padding:0 22px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s var(--ease),padding .45s var(--ease);
+  }
+  .nav-links.open{max-height:340px;padding:14px 22px 22px}
+  .nav-links a{font-size:16px;padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
+  .nav-links a::after{display:none}
+  .burger{display:grid}
+  .page-hero{padding:70px 0 40px}
+  .qr-grid{grid-template-columns:1fr;gap:18px}
+  .qr-card{padding:28px 24px 24px}
+  .thanks-block{padding:36px 24px}
+  .donate-section{padding:0 0 80px}
+}
+@media (max-width:560px){
+  .qr-box{max-width:240px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="ink 首页">
+      <span class="logo-i"><span class="logo-i-stem"></span><span class="logo-i-dot"></span></span><span class="logo-text">nk</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#featured">日常</a>
+      <a href="index.html#reviews">博客</a>
+      <a href="index.html#videos">视频</a>
+      <a href="index.html#news">教程</a>
+      <a href="index.html#about">关于</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="搜索">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <a href="https://space.bilibili.com/1561405908?spm_id_from=333.1007.0.0" data-bili="https://space.bilibili.com/1561405908?spm_id_from=333.1007.0.0" data-yt="https://www.youtube.com/@lovelzr0816" class="btn btn-primary btn-sm">订阅我的长视频频道</a>
+      <button class="icon-btn burger" id="burger" aria-label="菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-glow"></div>
+  <div class="container">
+    <p class="eyebrow"><span class="pulse"></span>支持我们</p>
+    <h1 class="page-title">支持我们<br>好的产品不该被埋没</h1>
+    <p class="page-sub">
+      每一份支持，都会变成更长远的自媒体道路。
+    </p>
+  </div>
+</section>
+
+<section class="donate-section">
+  <div class="container">
+
+    <div class="qr-grid">
+
+      <div class="qr-card">
+        <span class="qr-card-tag">方式一</span>
+        <h2 class="qr-card-title">微信（TenPayGo 或 Wechat）</h2>
+        <p class="qr-card-desc">
+          打开微信扫描二维码，选择任意金额支付。
+        </p>
+
+        <div class="qr-box">
+          <img src="https://cdn.jsdelivr.net/gh/luoshijian0912/luoshijian0912@746d9dfc3ce790a49fec6f95908e0aa18d6a7caf/images/wechat.jpg" alt="微信赞赏码">
+        </div>
+      </div>
+
+      <div class="qr-card">
+        <span class="qr-card-tag">方式二</span>
+        <h2 class="qr-card-title">支付宝（可能支持 AliPayHK）</h2>
+        <p class="qr-card-desc">
+          打开支付宝扫描二维码，输入任意金额支付。
+        </p>
+
+        <div class="qr-box">
+          <img src="https://cdn.jsdelivr.net/gh/luoshijian0912/luoshijian0912@746d9dfc3ce790a49fec6f95908e0aa18d6a7caf/images/alipay.jpg" alt="支付宝赞赏码">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="thanks-block">
+      <h3>为我们需要你的支持</h3>
+      <p>
+        ink 是一个完全独立的科技媒体。我们不接所有广告，所有的。这意味着所有的评测、视频、文章，都基于我们自己花钱买产品、实测、打磨。
+      </p>
+      <p>
+        这意味着<strong>没有任何来源收入</strong>。每一份捐赠，都是让我们能继续运转下去的直接动力。
+      </p>
+      <p>
+        谢谢你愿意看到这里。如果暂时不方便的话，也欢迎把 ink <strong>分享给他人</strong>——那同样是很珍贵的支持。
+      </p>
+
+      <nav class="platform-links">
+        <a href="https://luoshijian0912.github.io/luoshijian0912/">官方网站</a>
+        <a href="https://space.bilibili.com/1561405908?spm_id_from=333.1007.0.0">哔哩哔哩</a>
+        <a href="https://weibo.com/u/7977357078">微博</a>
+        <a href="https://www.douyin.com/user/MS4wLjABAAAAtYldUTM_sVBN-2_5Ld0uCkFmYEdxW1VUO3R5oLo01CBScfkphPqMoSHcqDoBgjtm?from_tab_name=main">抖音</a>
+        <a href="https://www.kuaishou.com/profile/3xfmiciya3s4xre">快手</a>
+        <a href="http://www.coolapk.com/u/36641166">酷安</a>
+        <a href="https://www.tiktok.com/@lovelzr0816">TikTok</a>
+        <a href="https://www.youtube.com/@lovelzr0816">YouTube</a>
+        <a href="https://x.com/lovelzr0816">X</a>
+        <a href="https://www.facebook.com/profile.php?id=61590757220565">Facebook</a>
+        <a href="https://t.me/ink_github">Telegram</a>
+        <a href="https://www.instagram.com/luoshijian0912">Instagram</a>
+        <a href="https://chat.whatsapp.com/B9nrDAgGzNZLnTwVaiguDJ">Whatsapp</a>
+      </nav>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(async function () {
+  const links = document.querySelectorAll('[data-bili][data-yt]');
+  if (!links.length) return;
+
+  async function detectCountry() {
+    const apis = [
+      { url: 'https://api.country.is/', parse: (d) => (d && d.country ? d.country : null) },
+      { url: 'https://ipwho.is/', parse: (d) => (d && d.country_code ? d.country_code : null) },
+      { url: 'https://ipapi.co/json/', parse: (d) => (d && d.country_code ? d.country_code : null) }
+    ];
+    for (const api of apis) {
+      try {
+        const r = await fetch(api.url, { cache: 'no-store' });
+        if (!r.ok) continue;
+        const d = await r.json();
+        const code = api.parse(d);
+        if (code) return String(code).toUpperCase();
+      } catch (e) {}
+    }
+    return null;
+  }
+
+  const code = await detectCountry();
+  const useBili = (code === null) ? true : (code === 'CN');
+
+  links.forEach((a) => {
+    const url = useBili ? a.dataset.bili : a.dataset.yt;
+    if (url) a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+})();
+
+(function () {
+  const burger = document.getElementById('burger');
+  const links = document.getElementById('navLinks');
+  if (!burger || !links) return;
+  burger.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+  });
+  links.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+</body>
+</html>
